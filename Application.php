@@ -7,10 +7,15 @@ use magoumi\phpmvc\db\DbModel;
 
 class Application
 {
-	public static string $ROOT_DIR;
+	const EVEN_BEFORE_REQUEST = 'beforeRequest';
+	const EVEN_AFTER_REQUEST = 'afterRequest';
 	
-	public string $layout = 'main';
+	protected array $eventListners = [];
+	
+	public static Application $app;
+	public static string $ROOT_DIR;
 	public string $userClass;
+	public string $layout = 'main';
 	public Router $router;
 	public Request $request;
 	public Response $response;
@@ -19,7 +24,6 @@ class Application
 	public ?UserModel $user;
 	public View $view;
 	
-	public static Application $app;
 	public ?Controller $controller = NULL;
 	
 	public function __construct($rootPath, array $config)
@@ -40,19 +44,7 @@ class Application
 			$primaryKey = $this->userClass::primaryKey();
 			$this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
 		} else {
-			$this->user = null;
-		}
-	}
-	
-	public function run()
-	{
-		try {
-			echo $this->router->resolver();
-		} catch (\Exception $e) {
-			$this->response->setStatusCode($e->getCode());
-			echo $this->view->renderView('_error', [
-				'exception' => $e
-			]);
+			$this->user = NULL;
 		}
 	}
 	
@@ -83,12 +75,38 @@ class Application
 	
 	public function logout()
 	{
-		$this->user = null;
+		$this->user = NULL;
 		$this->session->remove('user');
 	}
 	
 	public static function isGuest()
 	{
 		return !self::$app->user;
+	}
+	
+	public function on($eventName, $callback)
+	{
+		$this->eventListners[$eventName][] = $callback;
+	}
+	
+	public function triggerEvent($eventName)
+	{
+		$callbacks = $this->eventListners[$eventName] ?? [];
+		foreach ($callbacks as $callback) {
+			call_user_func($callback);
+		}
+	}
+	
+	public function run()
+	{
+		$this->triggerEvent(self::EVEN_BEFORE_REQUEST);
+		try {
+			echo $this->router->resolver();
+		} catch (\Exception $e) {
+			$this->response->setStatusCode($e->getCode());
+			echo $this->view->renderView('_error', [
+				'exception' => $e
+			]);
+		}
 	}
 }
