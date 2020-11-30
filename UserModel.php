@@ -7,10 +7,10 @@
  */
 
 
-namespace app\core;
+namespace magoumi\phpmvc;
 
 
-use app\core\db\DbModel;
+use magoumi\phpmvc\db\DbModel;
 
 abstract class UserModel extends DbModel
 {

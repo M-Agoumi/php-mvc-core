@@ -7,7 +7,7 @@
  */
 
 
-namespace app\core\exception;
+namespace magoumi\phpmvc\exception;
 
 
 class NotExistException extends \Exception

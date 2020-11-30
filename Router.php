@@ -1,13 +1,13 @@
 <?php
 
-namespace app\core;
-use app\core\exception\NotExistException;
+namespace magoumi\phpmvc;
+use magoumi\phpmvc\exception\NotExistException;
 
 /**
  * Class Router
  *
  * @author Mohamed Agoumi <agoumihunter@gmail.com>
- * @package app\core
+ * @package magoumi\phpmvc
  */
 class Router
 {
@@ -49,7 +49,7 @@ class Router
 			return Application::$app->view->renderView($callback);
 		}
 		if (is_array($callback)){
-			/** @var \app\core\controller $controller */
+			/** @var \magoumi\phpmvc\controller $controller */
 			$controller = new $callback[0]();
 			Application::$app->controller = $controller;
 			$controller->action = $callback[1];

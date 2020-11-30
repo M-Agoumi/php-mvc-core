@@ -1,11 +1,16 @@
 {
-    "name": "magoumi/php-mvc-core",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Mohamed Agoumi",
-            "email": "agoumihunter@gmail.com"
-        }
-    ],
-    "require": {}
+	"name": "magoumi/php-mvc-core",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Mohamed Agoumi",
+			"email": "agoumihunter@gmail.com"
+		}
+	],
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"magoumi\\phpmvc": "./"
+		}
+	}
 }

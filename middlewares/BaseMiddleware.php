@@ -7,7 +7,7 @@
  */
 
 
-namespace app\core\middlewares;
+namespace magoumi\phpmvc\middlewares;
 
 
 abstract class BaseMiddleware

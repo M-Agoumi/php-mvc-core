@@ -7,11 +7,11 @@
  */
 
 
-namespace app\core\middlewares;
+namespace magoumi\phpmvc\middlewares;
 
 
-use app\core\Application;
-use app\core\exception\ForbiddenException;
+use magoumi\phpmvc\Application;
+use magoumi\phpmvc\exception\ForbiddenException;
 
 class AuthMiddleware extends BaseMiddleware
 {

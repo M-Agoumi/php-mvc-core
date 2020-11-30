@@ -7,10 +7,10 @@
  */
 
 
-namespace app\core\db;
+namespace magoumi\phpmvc\db;
 
 
-use app\core\Application;
+use magoumi\phpmvc\Application;
 
 class Database
 {

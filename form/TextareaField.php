@@ -7,7 +7,7 @@
  */
 
 
-namespace app\core\form;
+namespace magoumi\phpmvc\form;
 
 
 class TextareaField extends BaseField

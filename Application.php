@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core;
+namespace magoumi\phpmvc;
 
-use app\core\db\Database;
-use app\core\db\DbModel;
+use magoumi\phpmvc\db\Database;
+use magoumi\phpmvc\db\DbModel;
 
 class Application
 {

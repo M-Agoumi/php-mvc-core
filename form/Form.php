@@ -7,10 +7,10 @@
  */
 
 
-namespace app\core\form;
+namespace magoumi\phpmvc\form;
 
 
-use app\core\Model;
+use magoumi\phpmvc\Model;
 
 class Form
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core;
+namespace magoumi\phpmvc;
 /**
  * @author  magoumi <agoumihunter@gmail.com>
- * @package app\core
+ * @package magoumi\phpmvc
  */
 class Request
 {

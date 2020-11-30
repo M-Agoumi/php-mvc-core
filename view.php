@@ -7,7 +7,7 @@
  */
 
 
-namespace app\core;
+namespace magoumi\phpmvc;
 
 
 class View

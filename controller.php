@@ -7,10 +7,10 @@
  */
 
 
-namespace app\core;
+namespace magoumi\phpmvc;
 
 
-use app\core\middlewares\BaseMiddleware;
+use magoumi\phpmvc\middlewares\BaseMiddleware;
 
 class controller
 {
