@@ -1,0 +1,11 @@
+{
+    "name": "magoumi/php-mvc-core",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mohamed Agoumi",
+            "email": "agoumihunter@gmail.com"
+        }
+    ],
+    "require": {}
+}
